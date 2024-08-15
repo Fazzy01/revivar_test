@@ -29,41 +29,6 @@ export default function ListImages() {
         });
     }, []);
 
-    const dumpImages = [
-        {
-            key: "123",
-            urls: {
-                regular: "/dog1.jpg"
-            },
-            alt_description: "dog1.jpg"
-
-        },
-        {
-            key: "1234",
-            urls: {
-                regular: "/dog2.jpg"
-            },
-            alt_description: "dog2.jpg"
-
-        },
-        {
-            key: "12345",
-            urls: {
-                regular: "/dog3.jpg"
-            },
-            alt_description: "dog3.jpg"
-
-        },
-        {
-            key: "123456",
-            urls: {
-                regular: "/dog4.jpg"
-            },
-            alt_description: "dog4.jpg"
-
-        },
-    ]
-
     const handleClick = (key) => {
         setIsSubmitted(false)
         setIsClicked(true)
@@ -81,7 +46,6 @@ export default function ListImages() {
 
     const handleDownload = async () => {
         const container = document.querySelector('.new-image'); // Select the container element
-        // const canvas = await html2canvas(container);
         const canvas = await html2canvas(container, { useCORS: true })
         const dataURL = canvas.toDataURL('image/png');
         const link = document.createElement('a');
@@ -129,22 +93,6 @@ export default function ListImages() {
                 }
 
             </div>
-            {/* <img src={imageurl} class="w-full h-full object-cover" /> */}
-
-            {/* {data.map((image) =>
-                <img src={image.urls.regular}
-                    alt={image.alt_description}
-                    className="w-[100px] h-[125px] object-cover hover:opacity-[0.6] cursor-pointer"
-                    onClick={() => handleClick(image.urls.regular)}
-                     />
-                    
-            )} */}
-            {/* <img src={image.urls.regular}
-                            alt={image.alt_description}
-                            className="w-[100px] h-[125px] object-cover hover:opacity-[0.6] cursor-pointer"
-                            onClick={() => handleClick(image.urls.regular)}
-                        /> */}
-
         </>
     )
 }
